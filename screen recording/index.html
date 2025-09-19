@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Screen Recorder</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-4xl mx-auto p-4 sm:p-6 md:p-8 bg-white rounded-2xl shadow-lg">
+        
+        <header class="text-center mb-6">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Enhanced Screen Recorder</h1>
+            <p class="text-gray-500 mt-2">Record your screen with camera overlay and audio controls.</p>
+        </header>
+
+        <!-- Video preview and camera container -->
+        <div class="mb-6 bg-gray-900 rounded-lg overflow-hidden relative">
+            <video id="preview" class="w-full h-auto" poster="https://placehold.co/1280x720/111827/4b5563?text=Your+Screen+Preview"></video>
+            <div id="camera-container" class="hidden">
+                <video id="camera-preview" autoplay muted></video>
+            </div>
+        </div>
+
+        <!-- Recording options -->
+        <div class="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+            <div>
+                <label for="audioSource" class="block text-sm font-medium text-gray-700 mb-1">Audio Source</label>
+                <select id="audioSource" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="both">Microphone + System Audio</option>
+                    <option value="system">System Audio Only</option>
+                    <option value="mic">Microphone Only</option>
+                    <option value="none">No Audio</option>
+                </select>
+            </div>
+            <div class="flex items-center space-x-3 pt-5">
+                 <input type="checkbox" id="includeCamera" class="h-5 w-5 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                 <label for="includeCamera" class="font-medium text-gray-700">Include Camera Feed</label>
+            </div>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-4">
+            <button id="startBtn" class="btn text-white font-semibold py-3 px-6 rounded-lg shadow-md btn-start">
+                <i data-lucide="circle-play" class="mr-2"></i> Start Recording
+            </button>
+            <button id="pauseBtn" class="btn text-white font-semibold py-3 px-6 rounded-lg shadow-md btn-pause" hidden>
+                <i data-lucide="pause-circle" class="mr-2"></i> Pause
+            </button>
+            <button id="stopBtn" class="btn text-white font-semibold py-3 px-6 rounded-lg shadow-md btn-stop" disabled>
+                <i data-lucide="stop-circle" class="mr-2"></i> Stop Recording
+            </button>
+            <a id="downloadLink" class="btn text-white font-semibold py-3 px-6 rounded-lg shadow-md btn-download" hidden href="#">
+                <i data-lucide="download" class="mr-2"></i> Download Video
+            </a>
+            <button id="discardBtn" class="btn text-white font-semibold py-3 px-6 rounded-lg shadow-md btn-discard" hidden>
+                 <i data-lucide="trash-2" class="mr-2"></i> Discard
+            </button>
+        </div>
+        
+        <!-- Status and timer display -->
+        <div id="status" class="text-center text-gray-600 mt-6 font-medium">
+            Status: Idle
+        </div>
+        <div id="timer" class="text-center text-2xl font-mono text-gray-800 mt-2">00:00:00</div>
+    </div>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide-react@0.292.0/dist/umd/lucide-react.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

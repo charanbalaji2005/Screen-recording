@@ -1,0 +1,62 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+video {
+    border: 2px solid #e5e7eb; 
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.btn {
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Button color styles */
+.btn-start { background-color: #10b981; } /* emerald-500 */
+.btn-start:hover:not(:disabled) { background-color: #059669; } /* emerald-600 */
+
+.btn-stop { background-color: #ef4444; } /* red-500 */
+.btn-stop:hover:not(:disabled) { background-color: #dc2626; } /* red-600 */
+
+.btn-download { background-color: #3b82f6; } /* blue-500 */
+.btn-download:hover:not(:disabled) { background-color: #2563eb; } /* blue-600 */
+
+.btn-pause { background-color: #f59e0b; } /* amber-500 */
+.btn-pause:hover:not(:disabled) { background-color: #d97706; } /* amber-600 */
+
+.btn-discard { background-color: #6b7280; } /* gray-500 */
+.btn-discard:hover:not(:disabled) { background-color: #4b5563; } /* gray-600 */
+
+/* Styles for the picture-in-picture camera preview */
+#camera-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 200px;
+    height: 150px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 3px solid white;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    resize: both;
+    cursor: move;
+}
+
+#camera-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1); /* Mirror view */
+}
+
+[hidden] {
+    display: none !important;
+}
